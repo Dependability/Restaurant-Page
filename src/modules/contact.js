@@ -2,6 +2,7 @@ export default function contactPage() {
     const wholeDiv = document.createElement("div");
     const estabInfo = document.createElement("div");
     const ownerInfo = document.createElement("div");
+    const contactWrapper = document.createElement("div");
 
     //Establishment Info
     const estabHeader = document.createElement("h3");
@@ -15,7 +16,7 @@ export default function contactPage() {
 
     //Owner Info
     const ownerHeader = document.createElement("h3");
-    ownerHeader.textContent = "Dependability";
+    ownerHeader.textContent = "Seyi Bakare";
 
     const ownerAddress = document.createElement("p");
     ownerAddress.textContent = "Address: 6969 YoMama ln, FL, CA ";
@@ -33,9 +34,16 @@ export default function contactPage() {
     ownerInfo.appendChild(ownerAddress);
     ownerInfo.appendChild(ownerPhone);
 
-    wholeDiv.appendChild(estabInfo);
-    wholeDiv.appendChild(ownerInfo);
+    contactWrapper.appendChild(estabInfo);
+    contactWrapper.appendChild(ownerInfo);
 
+    wholeDiv.appendChild(contactWrapper);
+    wholeDiv.classList.add('body');
+    contactWrapper.classList.add('wrapper')
+    contactWrapper.classList.add('hide')
     const bodyContent = document.querySelector("#content");
     bodyContent.appendChild(wholeDiv);
+    setTimeout(()=> {
+        contactWrapper.classList.remove('hide')
+    }, 0)
 } 

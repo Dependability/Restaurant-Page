@@ -6,6 +6,7 @@ function addItem(name, desc, image) {
     const itemImg = document.createElement("img");
     const itemName = document.createElement("h2");
     const itemDesc = document.createElement("p");
+    item.classList.add('item')
 
     itemImg.setAttribute("src", image);
     itemName.textContent = name;
@@ -20,7 +21,8 @@ function addItem(name, desc, image) {
 }
 export default function createPage() {
     const wholeDiv = document.createElement("div");
-
+    wholeDiv.classList.add('items')
+    wholeDiv.classList.add('hide')
     addItem("Premium Steak", `Steak that can be selected to be any doneness you prefer. You can even order it
     still breathing if you wish!`, '');
     addItem("Ice Cream", "This can be any flavor out of our 52 flavors. You can say we have a whole deck!", "");
@@ -32,7 +34,12 @@ export default function createPage() {
     items.forEach(menuItem => {
         wholeDiv.append(menuItem);
     })
+    
+    items.splice(0, items.length)
 
     const bodyContent = document.querySelector("#content");
     bodyContent.appendChild(wholeDiv);
+    setTimeout(()=> {
+        wholeDiv.classList.remove('hide')
+    }, 0)
 }
